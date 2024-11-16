@@ -28,7 +28,7 @@ note: built using [Windsurf Editor](https://codeium.com/windsurf) + Claude3.5 So
 
 ```bash
 # Clone the repository
-git clone [your-repo-url]
+git clone git@github.com:jerichoBob/vue3-okta-windsurf-test.git
 cd vue3-okta-windsurf-test
 
 # Install dependencies
@@ -80,18 +80,21 @@ The application will be available at http://localhost:5173
 
 ```
 src/
-├── components/          # Vue components
-│   ├── LoginDialog.vue  # Login modal component
-│   └── ...
-├── views/              # Page components
-│   ├── HomeView.vue    # Public landing page
-│   └── ProtectedView.vue # Protected route with group info
-├── router/             # Vue Router configuration
-│   └── index.js        # Routes and auth guards
-├── auth.js            # Okta authentication configuration
-├── App.vue            # Root component
-└── main.js           # Application entry point
-```
+├── components/             # Vue components
+│   ├── LoginDialog.vue     # Login modal component
+│   ├── LoginCallback.vue   # Handles auth callback
+│   └── HelloWorld.vue      # Example component
+├── views/                  # Page components
+│   ├── HomeView.vue        # Public landing page
+│   └── ProtectedView.vue   # Protected route with group info
+├── router/                 # Vue Router configuration
+│   └── index.js            # Routes and auth guards
+├── assets/                 # Static assets
+│   └── vue.svg             # Vue logo
+├── auth.js                 # Okta authentication configuration
+├── App.vue                 # Root component
+├── style.css               # Global styles
+└── main.js                 # Application entry point
 
 ## Authentication Flow
 
