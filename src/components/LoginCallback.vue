@@ -14,9 +14,10 @@ const router = useRouter();
 onMounted(async () => {
   try {
     await oktaAuth.handleLoginRedirect();
-    router.push('/');
+    router.push('/protected');
   } catch (error) {
     console.error('Error handling login callback:', error);
+    router.push('/');
   }
 });
 </script>

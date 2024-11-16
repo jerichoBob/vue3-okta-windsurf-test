@@ -12,17 +12,26 @@ const oktaAuth = new OktaAuth({
   },
   tokenManager: {
     storage: 'sessionStorage',
-    autoRenew: true
+    autoRenew: true,
+    expireEarlySeconds: 30
   },
-  devMode: true, // Enable additional logging
-  responseType: ['token', 'id_token'],
-  grantType: ['authorization_code', 'implicit'],
+  devMode: true,
+  responseType: ['code'],
+  grantType: ['authorization_code'],
+  postLogoutRedirectUri: import.meta.env.VITE_APP_BASE_URL
 });
 
 // Add an event listener for authentication success
-oktaAuth.authStateManager.subscribe((authState) => {
+oktaAuth.authStateManager.subscribe(async (authState) => {
   if (authState.isAuthenticated) {
     console.log('Authentication successful');
+    try {
+      const user = await oktaAuth.getUser();
+      console.log('User info:', user);
+      console.log('User groups:', user.groups);
+    } catch (error) {
+      console.error('Error fetching user info:', error);
+    }
   }
 });
 

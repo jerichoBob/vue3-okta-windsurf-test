@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Welcome to Vue 3 + Okta Auth Demo</h1>
+    <h1>Vue 3 + Okta Auth Demo</h1>
     <p>This is a demonstration of Vue 3 with Okta authentication and group-based authorization.</p>
     <p v-if="!authenticated">Please log in to access protected routes.</p>
   </div>

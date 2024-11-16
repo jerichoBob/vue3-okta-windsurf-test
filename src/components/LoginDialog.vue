@@ -37,8 +37,10 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { oktaAuth } from '../auth';
 
+const router = useRouter();
 const showDialog = ref(false);
 const username = ref('');
 const password = ref('');
@@ -52,16 +54,17 @@ async function handleLogin() {
   loading.value = true;
   
   try {
-    // First, get the session token
     const transaction = await oktaAuth.signIn({
       username: username.value,
       password: password.value
     });
 
     if (transaction.status === 'SUCCESS') {
-      // Use the session token to get tokens
+      // Exchange the session token for an authorization code
       await oktaAuth.token.getWithRedirect({
-        sessionToken: transaction.sessionToken
+        sessionToken: transaction.sessionToken,
+        responseType: ['code'],
+        scopes: ['openid', 'email', 'profile', 'groups']
       });
       
       emit('login-success');
