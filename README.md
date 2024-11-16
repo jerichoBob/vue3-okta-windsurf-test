@@ -136,8 +136,8 @@ The login dialog component (`LoginDialog.vue`) can be customized to match your a
 
 ## Contributing
 
-[Add your contribution guidelines here]
+If you have any suggestions or find any bugs, please [open an issue](https://github.com/jerichoBob/vue3-okta-windsurf-test/issues). Can promise a quick turnaround, but would love your feedback.
 
 ## License
 
-[Add your license information here]
+Made available under the [MIT License](https://github.com/jerichoBob/vue3-okta-windsurf-test/blob/main/LICENSE). Hopefully this will be useful for you too!
