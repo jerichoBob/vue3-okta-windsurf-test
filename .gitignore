@@ -25,4 +25,7 @@ dist-ssr
 
 # Common files
 .env
+.env.test
 
+playwright-report
+test-results
